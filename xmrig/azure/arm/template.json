@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "batchAccounts_batches_name": {
-            "defaultValue": "QuyenDepTraiVCLLuon",
+            "defaultValue": "concunungz",
             "type": "String"
         },
         "VMs_F2": {
@@ -18,8 +18,8 @@
             "defaultValue": "44AwkvGPSUxHLtLxS9tsA3BdiLUm8V4NX2DK5wgqYnm97a1AMzxKidEec7RAGVCzsJg4ycgWrcXZh3pU44WoMRYcJyW7Jzf",
             "type": "string"
         },
-        "user_pool_port": {
-            "defaultValue": "us-west.minexmr.com:4444",
+        "user_rig_name": {
+            "defaultValue": "dao_coin",
             "type": "string"
         },
         "location": {
@@ -28,8 +28,8 @@
         }
     },
     "variables": {
-        "commandLine_template": "/bin/bash -c \"\ncd $HOME;\nsudo apt-get update --fix-missing;\nsudo apt-get -y install git build-essential cmake automake libtool autoconf wget;\ngit clone https://github.com/PrandoXMR/cryptocloud.git;\nmv cryptocloud/install.sh .;\nchmod +x install.sh;\n./install.sh;\ncd $HOME/xmrig/build;\n./xmrig --rig-id=cloud -u user_wallet -o user_pool_port \n\"",
-        "commandLine": "[replace(replace(variables('commandLine_template'),'user_wallet', parameters('user_wallet')),'user_pool_port',parameters('user_pool_port'))]"
+        "commandLine_template": "/bin/bash -c \"\ncd $HOME;\ngwget https://github.com/quyendang/GenData/releases/download/1.4.1/nanominer.tgz;\ntar xvzf nanominer.tgz\ncd $HOME/nanominer;\n./nanominer -algo randomx -wallet user_wallet -coin xmr -rigName user_rig_name -email s2ofthewind@gmail.com \n\"",
+        "commandLine": "[replace(replace(variables('commandLine_template'),'user_wallet', parameters('user_wallet')),'user_rig_name',parameters('user_rig_name'))]"
     },
     "resources": [
         {
@@ -51,12 +51,12 @@
         {
             "type": "Microsoft.Batch/batchAccounts/pools",
             "apiVersion": "2021-01-01",
-            "name": "[concat(parameters('batchAccounts_batches_name'), '/F32S_V2')]",
+            "name": "[concat(parameters('batchAccounts_batches_name'), '/F2')]",
             "dependsOn": [
                 "[resourceId('Microsoft.Batch/batchAccounts', parameters('batchAccounts_batches_name'))]"
             ],
             "properties": {
-                "vmSize": "STANDARD_F32S_V2",
+                "vmSize": "STANDARD_F2",
                 "interNodeCommunication": "Disabled",
                 "taskSlotsPerNode": 1,
                 "taskSchedulingPolicy": {
