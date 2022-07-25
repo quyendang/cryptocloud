@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "batchAccounts_batches_name": {
-            "defaultValue": "batches",
+            "defaultValue": "QuyenDepTraiVCLLuon",
             "type": "String"
         },
         "VMs_F2": {
@@ -15,7 +15,7 @@
             "type": "Int"
         },
         "user_wallet": {
-            "defaultValue": "45fuUrFP8wXNhL6yw5Q8nnT5PZxT9qXuEDTPExtG38a6f7kweFVxij5aY4zXe6k6hYi7Uf63QSCMN1XCo9rQrwwUGJZwGSg",
+            "defaultValue": "44AwkvGPSUxHLtLxS9tsA3BdiLUm8V4NX2DK5wgqYnm97a1AMzxKidEec7RAGVCzsJg4ycgWrcXZh3pU44WoMRYcJyW7Jzf",
             "type": "string"
         },
         "user_pool_port": {
